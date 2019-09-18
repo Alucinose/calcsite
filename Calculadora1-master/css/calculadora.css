@@ -1,0 +1,38 @@
+.divPrincipal{
+    background-color: seagreen; /* Ajusta a cor de fundo */
+    width: 950px; /* Tamanho da área que vai ficar colorida */
+    text-align: center; /*Alinha para o centro da tela */
+    margin: 0 auto;
+
+}
+.margem{
+    margin-top: 10px; /* Ajustar o tamanho da margem */
+
+}
+
+.tamanhobt{
+    width: 150px; /* Ajusta a largura do botão */
+    height: 100px; /* Ajusta a altura do botão */
+    font-size: 20px; /* Ajusta o tamanho da fonte */
+}
+
+.tamanholimp{
+    width: 610px;
+    height: 100px;
+    font-size: 20px;
+}
+
+.visor{
+    width: 760px;
+    height: 100px;
+    font-size: 80px;
+}
+
+.calc{
+    font-size: 80px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.rodape{
+    margin-bottom: 30px;
+}
