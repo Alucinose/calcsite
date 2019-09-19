@@ -19,11 +19,11 @@
 
  <br>
  <br>
- <p class="texto1">Uma equação é uma expressão matemática que possui em sua composição incógnitas, 
+ <span class="texto1">Uma equação é uma expressão matemática que possui em sua composição incógnitas, 
  coeficientes, expoentes e um sinal de igualdade.
 <br><br>
  E eis aqui uma calculadora que fará todo o seu trabalho!     
- </p>   
+ </span>   
 <br>
 <br>
  <br>
@@ -51,12 +51,47 @@ Entenda a estrutura:<br><br>
 <input type="button" name="calc" value="Calcular" onclick="resultado();"></input>
 </div>
 
-    
+<br>
+<br>
+<br>    
+
+<p class="texto">Para essa última etapa, note na fórmula de Bhaskara que existe um sinal “±”. 
+Esse sinal indica que devem ser realizados dois cálculos. O primeiro para o 
+caso em que o número que o segue seja positivo e o segundo para o caso em que 
+o número que o segue seja negativo.
+
+    É comum nomear cada um desses resultados como x' e x'' ou x1 e x2. Observe:</p>
 
 
+<img class= "logo" src="https://s1.static.brasilescola.uol.com.br/img/2016/04/encontrando-raizes-pela-formula-de-bhaskara.jpg">
+
+<div class="texto">
+   Essa é a estrutura:
+<br> 
+<br>
+x = – b ± √Δ<br>
+_____________ <br>
+      2·a   <br>
+<br>
+x = – 12 ± √196 <br>
+_______________ <br>
+      2·1       <br>
+<br>
+x = – 12 ± 14 <br>
+______________ <br>
+      2        <br>
 
 
+<br><br><br>
+E por fim, a calculadora:
 
+x = -<input type="text" placeholder="b" class="tBt" id="valor1"></input>
++- √<input type="text" placeholder="Δ" class="tBt" id="valor2"></input>
+/ 2.<input type="text" placeholder="a" class="tBt" id="valor3"></input>
+= <input type="text" disabled class="visor" placeholder="Resultado" class="tBt" id="result"></input>
+
+<input type="button" class="tBt" name="calculo" value="Calcular" onclick="resultado2();"></input>
+</div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="js/segundo.js"></script>
 </body>
