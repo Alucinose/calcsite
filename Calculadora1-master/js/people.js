@@ -36,7 +36,7 @@ function Dados(url){
     xhttp.send();
     
     var retorno = JSON.parse(xhttp.responseText) 
-    console.log(xhttp.responseText)
+    console.log(xhttp.responseT)
 
 
 }
