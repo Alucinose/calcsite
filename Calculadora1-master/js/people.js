@@ -20,7 +20,9 @@ var html = "";
 
 for(var i=0; i < retorno.results.length; i++  ){
    var nome = retorno.results[i].name;
-   html = html + "<a href='#' onclick=Dados('"+url+"')>" + nome + "</a> <br>";
+   urlUsuarios = retorno.results[i].url;
+
+   html = html + "<a href='#' onclick=Dados('"+urlUsuarios+"')>" + nome + "</a> <br>";
     }
 
     document.getElementById("usuarios").innerHTML = html; 
@@ -28,15 +30,55 @@ for(var i=0; i < retorno.results.length; i++  ){
 
 function Dados(url){
    
-    
+    var urlUsuarios = url;
+
     var xhttp = new XMLHttpRequest(); 
     
-    xhttp.open("GET", url, false);
+    xhttp.open("GET", urlUsuarios, false);
     
     xhttp.send();
     
     var retorno = JSON.parse(xhttp.responseText) 
-    console.log(xhttp.responseT)
+    console.log(xhttp.responseText)
+     
+    var html = "";
 
+        
+    html = html + "<a ('"+urlUsuarios+"')>" 
+    + "<br>" + "Nome: " + retorno.name 
+    + "<br>" + "Altura: " + retorno.height 
+    + "<br>" + "Peso: " + retorno.mass  
+    + "<br>" + "Cor do cabelo: " + retorno.hair_color  
+    + "<br>" + "Cor da pele: " + retorno.skin_color 
+    + "<br>" + "Cor dos olhos: " + retorno.eye_color 
+    + "<br>" + "Ano do nascimento: " + retorno.birth_year
+    + "<br>" + "Gênero: " + retorno.gender 
+    + "</a> <br>"
+    
+    document.getElementById("descr").innerHTML = html;
+}
+
+function dadosFilmes(url){
+
+    var urlFilmes = url;
+
+    var xhttp = new XMLHttpRequest(); 
+    
+    xhttp.open("GET", urlFilmes, false);
+    
+    xhttp.send();
+    
+    var retorno = JSON.parse(xhttp.responseText) 
+    console.log(xhttp.responseText)
+     
+    var html = "";
+
+    for(var a=0; a < retorno.results.filmes.length; a++  ){
+        var f = retorno.results[a].films.length;
+        
+    html = html + "<a href='#' onclick=Dados('"+urlFilmes+"')>" + f + "</a> <br>";
+   }
+    
+    document.getElementById("filmes").innerHTML = html;
 
 }
