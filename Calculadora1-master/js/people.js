@@ -60,7 +60,7 @@ function Dados(url){
 
 function dadosFilmes(url){
 
-    var urlFilmes = url;
+    var urlFilmes = 'https://swapi.co/api/films/';
 
     var xhttp = new XMLHttpRequest(); 
     
@@ -73,7 +73,7 @@ function dadosFilmes(url){
      
     var html = "";
 
-    for(var a=0; a < retorno.results.filmes.length; a++  ){
+    for(var a=0; a < retorno.filmes.length; a++  ){
         var f = retorno.results[a].films.length;
         
     html = html + "<a href='#' onclick=Dados('"+urlFilmes+"')>" + f + "</a> <br>";
