@@ -1,5 +1,34 @@
 function fazerRequisicao(){
-var url='https://swapi.co/api/people/'; //Dei a url onde nós vamos acessar
+
+
+    var url = 'https://swapi.co/api/people/';
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", url, true);
+
+        xhttp.onload = function(e) {
+              if (xhttp.readyState === 4) {
+                if (xhttp.status === 200){
+                 response = JSON.parse(xhttp.responseText);
+                 var html = "";
+                for (var i = 0; i < response.results.length; i++) {
+                    var nome = response.results[i].name;
+                    var url = response.results[i].url;
+                    html = html + "<a href='#' onclick=Dados('" + url + "');>" + nome + "</a><br>";
+                }
+                document.getElementById("descr").innerHTML = html;
+             }else{
+                 console.error(xhttp.statusText);
+             }
+         }
+     };
+     xhttp.send();
+    
+    
+}
+
+
+
+/*var url='https://swapi.co/api/people/'; //Dei a url onde nós vamos acessar
 
 var xhttp = new XMLHttpRequest(); //A biblioteca onde está os arquivos
 
@@ -7,7 +36,7 @@ xhttp.open("GET", url, false); //Dei o comando para ele pegar o arquivo do url
 
 xhttp.send();//A execução do script para aqui até a requisição retornar do servidor
 
-var retorno = JSON.parse(xhttp.responseText) //
+var retorno = JSON.parse(xhttp.responseText) //         ----- Maneira sincrona é quando você para e espera a resposta!!!!
 console.log(xhttp.responseText)
 
 //var primeiroNome = retorno.results[0].name;
@@ -25,18 +54,16 @@ for(var i=0; i < retorno.results.length; i++  ){
    html = html + "<a href='#' onclick=Dados('"+urlUsuarios+"')>" + nome + "</a> <br>";
     }
 
-    document.getElementById("usuarios").innerHTML = html; 
-}
+    document.getElementById("usuarios").innerHTML = html; */
+
 
 function Dados(url){
-   
-    var urlUsuarios = url;
+  
 
-    var xhttp = new XMLHttpRequest(); 
-    
-    xhttp.open("GET", urlUsuarios, false);
-    
-    xhttp.send();
+    var urlUsuarios = url;
+    var xhttp = new XMLHttpRequest();    
+     xhttp.open("GET", urlUsuarios, false);
+     xhttp.send();
     
     var retorno = JSON.parse(xhttp.responseText) 
     console.log(xhttp.responseText)
@@ -58,27 +85,41 @@ function Dados(url){
     document.getElementById("descr").innerHTML = html;
 }
 
-function dadosFilmes(url){
+function dadosFilmes(){
 
     var urlFilmes = 'https://swapi.co/api/films/';
-
     var xhttp = new XMLHttpRequest(); 
-    
-    xhttp.open("GET", urlFilmes, false);
-    
-    xhttp.send();
-    
-    var retorno = JSON.parse(xhttp.responseText) 
-    console.log(xhttp.responseText)
-     
-    var html = "";
-
-    for(var a=0; a < retorno.filmes.length; a++  ){
-        var f = retorno.results[a].films.length;
-        
-    html = html + "<a href='#' onclick=Dados('"+urlFilmes+"')>" + f + "</a> <br>";
+    xhttp.open("GET", urlFilmes, true);
+    xhttp.onload = function(e) {
+        if (xhttp.readyState === 4) {
+          if (xhttp.status === 200){
+           response = JSON.parse(xhttp.responseText);
+           var html = "";
+          for (var a = 0; a < response.results.length; a++) {
+              var titulo = response.results[a].title;
+              var url = response.results[a].url;
+              html = html + "<a href='#' onclick=Dados('" + urlFilmes + "');>" + titulo + "</a><br>";
+          }
+          document.getElementById("descr").innerHTML = html;
+       }else{
+           console.error(xhttp.statusText);
+       }
    }
-    
-    document.getElementById("filmes").innerHTML = html;
+};
+xhttp.send();
+   
 
 }
+
+/*var retorno = JSON.parse(xhttp.responseURL) 
+console.log(xhttp.responseURL)
+ 
+var html = "";
+
+for(var a=0; a < retorno.filmes; a++  ){
+    var f = retorno.results[a].films.length;
+    
+html = html + "<a href='#' onclick=dadosFilmes('"+urlFilmes+"')>" + f + "</a> <br>";
+}
+
+document.getElementById("filmes").innerHTML = html;*/
