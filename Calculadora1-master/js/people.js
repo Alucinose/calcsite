@@ -26,6 +26,42 @@ function fazerRequisicao(){
     
 }
 
+function siteNovo(){
+    
+    var urlNova = 'http://127.0.0.1:3000';
+    var xhttp = new XMLHttpRequest();    
+     xhttp.open("GET", urlNova, false);
+     xhttp.send();
+    
+    var retorno = JSON.parse(xhttp.responseText) 
+    console.log(xhttp.responseText)
+     
+    var html = "";
+
+
+     html = html + "<a ('"+urlNova+"')>" + retorno.nome + "</a><br>"; 
+
+    document.getElementById("siteN").innerHTML = html;
+}
+
+/*function Site(){
+    var urlSite = '127.0.0.1:3000';
+    var xhttp = new XMLHttpRequest();    
+     xhttp.open("GET", urlSite, false);
+     xhttp.send();
+    
+    var retorno = JSON.parse(xhttp.responseText) 
+    console.log(xhttp.responseText)
+     
+    var html = "";
+
+        
+    html = html + "<a ('"+urlUsuarios+"')>" 
+    + "<br>" + "Nome: " + retorno.nome 
+    + "</a> <br>"
+    
+    document.getElementById("siteNovo").innerHTML = html;
+}*/
 
 
 /*var url='https://swapi.co/api/people/'; //Dei a url onde nós vamos acessar
@@ -85,7 +121,7 @@ function Dados(url){
     document.getElementById("descr").innerHTML = html;
 }
 
-function dadosFilmes(){
+function Filmes(){
 
     var urlFilmes = 'https://swapi.co/api/films/';
     var xhttp = new XMLHttpRequest(); 
@@ -100,7 +136,7 @@ function dadosFilmes(){
               var url = response.results[a].url;
               html = html + "<a href='#' onclick=Dados('" + urlFilmes + "');>" + titulo + "</a><br>";
           }
-          document.getElementById("descr").innerHTML = html;
+          document.getElementById("filmes").innerHTML = html;
        }else{
            console.error(xhttp.statusText);
        }
@@ -108,6 +144,30 @@ function dadosFilmes(){
 };
 xhttp.send();
    
+
+}
+
+function dadosFilmes(urlFilmes){
+
+    var urlF = urlFilmes;
+    var xhttp = new XMLHttpRequest();    
+     xhttp.open("GET", urlF, false);
+     xhttp.send();
+    
+    var retorno = JSON.parse(xhttp.responseText) 
+    console.log(xhttp.responseText)
+     
+    var html = "";
+
+        
+    html = html + "<a ('"+urlUsuarios+"')>" 
+    + "<br>" + "Title: " + retorno.title
+    + "<br>" + "Director: " + retorno.director 
+    + "<br>" + "Producer: " + retorno.producer  
+    + "<br>" + "Release date: " + retorno.release_date  
+    + "</a> <br>"
+    
+    document.getElementById("filmes").innerHTML = html;
 
 }
 
