@@ -1,45 +1,45 @@
-function fazerRequisicao(){
+function fazerRequisicao() {
 
 
     var url = 'https://swapi.co/api/people/';
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", url, true);
 
-        xhttp.onload = function(e) {
-              if (xhttp.readyState === 4) {
-                if (xhttp.status === 200){
-                 response = JSON.parse(xhttp.responseText);
-                 var html = "";
+    xhttp.onload = function (e) {
+        if (xhttp.readyState === 4) {
+            if (xhttp.status === 200) {
+                response = JSON.parse(xhttp.responseText);
+                var html = "";
                 for (var i = 0; i < response.results.length; i++) {
                     var nome = response.results[i].name;
                     var url = response.results[i].url;
                     html = html + "<a href='#' onclick=Dados('" + url + "');>" + nome + "</a><br>";
                 }
                 document.getElementById("descr").innerHTML = html;
-             }else{
-                 console.error(xhttp.statusText);
-             }
-         }
-     };
-     xhttp.send();
-    
-    
+            } else {
+                console.error(xhttp.statusText);
+            }
+        }
+    };
+    xhttp.send();
+
+
 }
 
-function siteNovo(){
-    
+function siteNovo() {
+
     var urlNova = 'http://127.0.0.1:3000';
-    var xhttp = new XMLHttpRequest();    
-     xhttp.open("GET", urlNova, false);
-     xhttp.send();
-    
-    var retorno = JSON.parse(xhttp.responseText) 
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", urlNova, false);
+    xhttp.send();
+
+    var retorno = JSON.parse(xhttp.responseText)
     console.log(xhttp.responseText)
-     
+
     var html = "";
 
 
-     html = html + "<a ('"+urlNova+"')>" + retorno.nome + "</a><br>"; 
+    html = html + "<a ('" + urlNova + "')>" + retorno.nome + "</a><br>";
 
     document.getElementById("siteN").innerHTML = html;
 }
@@ -93,92 +93,92 @@ for(var i=0; i < retorno.results.length; i++  ){
     document.getElementById("usuarios").innerHTML = html; */
 
 
-function Dados(url){
-  
+function Dados(url) {
+
 
     var urlUsuarios = url;
-    var xhttp = new XMLHttpRequest();    
-     xhttp.open("GET", urlUsuarios, false);
-     xhttp.send();
-    
-    var retorno = JSON.parse(xhttp.responseText) 
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", urlUsuarios, false);
+    xhttp.send();
+
+    var retorno = JSON.parse(xhttp.responseText)
     console.log(xhttp.responseText)
-     
+
     var html = "";
 
-        
-    html = html + "<a ('"+urlUsuarios+"')>" 
-    + "<br>" + "Nome: " + retorno.name 
-    + "<br>" + "Altura: " + retorno.height 
-    + "<br>" + "Peso: " + retorno.mass  
-    + "<br>" + "Cor do cabelo: " + retorno.hair_color  
-    + "<br>" + "Cor da pele: " + retorno.skin_color 
-    + "<br>" + "Cor dos olhos: " + retorno.eye_color 
-    + "<br>" + "Ano do nascimento: " + retorno.birth_year
-    + "<br>" + "Gênero: " + retorno.gender 
-    + "</a> <br>"
-    
+
+    html = html + "<a ('" + urlUsuarios + "')>"
+        + "<br>" + "Nome: " + retorno.name
+        + "<br>" + "Altura: " + retorno.height
+        + "<br>" + "Peso: " + retorno.mass
+        + "<br>" + "Cor do cabelo: " + retorno.hair_color
+        + "<br>" + "Cor da pele: " + retorno.skin_color
+        + "<br>" + "Cor dos olhos: " + retorno.eye_color
+        + "<br>" + "Ano do nascimento: " + retorno.birth_year
+        + "<br>" + "Gênero: " + retorno.gender
+        + "</a> <br>"
+
     document.getElementById("descr").innerHTML = html;
 }
 
-function Filmes(){
+function Filmes() {
 
     var urlFilmes = 'https://swapi.co/api/films/';
-    var xhttp = new XMLHttpRequest(); 
+    var xhttp = new XMLHttpRequest();
     xhttp.open("GET", urlFilmes, true);
-    xhttp.onload = function(e) {
+    xhttp.onload = function (e) {
         if (xhttp.readyState === 4) {
-          if (xhttp.status === 200){
-           response = JSON.parse(xhttp.responseText);
-           var html = "";
-          for (var a = 0; a < response.results.length; a++) {
-              var titulo = response.results[a].title;
-              var url = response.results[a].url;
-              html = html + "<a href='#' onclick=Dados('" + urlFilmes + "');>" + titulo + "</a><br>";
-          }
-          document.getElementById("filmes").innerHTML = html;
-       }else{
-           console.error(xhttp.statusText);
-       }
-   }
-};
-xhttp.send();
-   
+            if (xhttp.status === 200) {
+                response = JSON.parse(xhttp.responseText);
+                var html = "";
+                for (var a = 0; a < response.results.length; a++) {
+                    var titulo = response.results[a].title;
+                    var url = response.results[a].url;
+                    html = html + "<a href='#' onclick=Dados('" + urlFilmes + "');>" + titulo + "</a><br>";
+                }
+                document.getElementById("filmes").innerHTML = html;
+            } else {
+                console.error(xhttp.statusText);
+            }
+        }
+    };
+    xhttp.send();
+
 
 }
 
-function dadosFilmes(urlFilmes){
+function dadosFilmes(urlFilmes) {
 
     var urlF = urlFilmes;
-    var xhttp = new XMLHttpRequest();    
-     xhttp.open("GET", urlF, false);
-     xhttp.send();
-    
-    var retorno = JSON.parse(xhttp.responseText) 
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", urlF, false);
+    xhttp.send();
+
+    var retorno = JSON.parse(xhttp.responseText)
     console.log(xhttp.responseText)
-     
+
     var html = "";
 
-        
-    html = html + "<a ('"+urlUsuarios+"')>" 
-    + "<br>" + "Title: " + retorno.title
-    + "<br>" + "Director: " + retorno.director 
-    + "<br>" + "Producer: " + retorno.producer  
-    + "<br>" + "Release date: " + retorno.release_date  
-    + "</a> <br>"
-    
+
+    html = html + "<a ('" + urlUsuarios + "')>"
+        + "<br>" + "Title: " + retorno.title
+        + "<br>" + "Director: " + retorno.director
+        + "<br>" + "Producer: " + retorno.producer
+        + "<br>" + "Release date: " + retorno.release_date
+        + "</a> <br>"
+
     document.getElementById("filmes").innerHTML = html;
 
 }
 
-/*var retorno = JSON.parse(xhttp.responseURL) 
+/*var retorno = JSON.parse(xhttp.responseURL)
 console.log(xhttp.responseURL)
- 
+
 var html = "";
 
 for(var a=0; a < retorno.filmes; a++  ){
     var f = retorno.results[a].films.length;
-    
+
 html = html + "<a href='#' onclick=dadosFilmes('"+urlFilmes+"')>" + f + "</a> <br>";
 }
 

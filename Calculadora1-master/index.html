@@ -1,48 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    
+
+
     <title>Document</title>
 
     <script src="js/people.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
+
 <body>
-    
+
     <div class="header"> <strong>Contas matemáticas para matematicandos desmatematicados</strong>
         <div>
-            <img class= "logo" src= "https://elvisdermoni.com.br/wp-content/uploads/2018/05/Assessor-Cont%C3%A1bil-350x230.png">
+            <img class="logo"
+                src="https://elvisdermoni.com.br/wp-content/uploads/2018/05/Assessor-Cont%C3%A1bil-350x230.png">
 
         </div>
 
     </div>
-    <div class="center">  
+    <div class="center">
         <ul>
-           <li><a href="calculadora.html">Calculadora</a></li>
-           <li><a href="#" onclick="fazerRequisicao();">SW</a></li>
-           <li><a href="#" onclick="Filmes();">Filmes</a></li>
-           <li><a href="#" onclick="siteNovo();">Site novo</a></li>
+            <li><a href="calculadora.html">Calculadora</a></li>
+            <li><a href="#" onclick="fazerRequisicao();">SW</a></li>
+            <li><a href="#" onclick="Filmes();">Filmes</a></li>
+            <li><a href="#" onclick="siteNovo();">Site novo</a></li>
+
         </ul>
+
+        <h2>-------HTML Forms--------</h2>
+
+        <form action="http://127.0.0.1:3000" method="POST" target="_blank" > 
+            First name:<br>
+            <input type="text" name="firstname" value="">
+            <br>
+            Last name:<br>
+            <input type="text" name="lastname" value="">
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+<h2>---------------------------------</h2>
 
     </div>
     <div class="rodape">
 
     </div>
 
-     <!--<ul>
+    <!--<ul>
          <li id="nome1"></li>
          <li id="nome2"></li>
      </ul>  Outra maneira de ler os resultados-->
-     <div id="teste"></div>
-     <div id="descr"></div>
-     <div id="filmes"></div>
-     <div id="siteN"></div>
+    <div id="teste"></div>
+    <div id="descr"></div>
+    <div id="filmes"></div>
+    <div id="siteN"></div>
 
-    </script>  
+    </script>
 </body>
+
 </html>
